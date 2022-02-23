@@ -45,7 +45,7 @@ h2 {
   font-size: 35px !important;
   margin-top: 10rem !important;
 }
-p {
+.main_div p {
   margin-top: 5rem !important;
   color: black;
   font-size: large;
@@ -80,7 +80,7 @@ p {
     margin-top: 5rem !important;
     font-size: 20px !important;
   }
-  p {
+  .main_div p {
       margin-top: 3rem !important;
     font-size: 15px;
   }

@@ -1,20 +1,16 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import contact from "../images/address2.png";
 
 const Contact = () => {
   const history = useHistory();
-  const [userData, setUserData] = useState({
-    firstName: "",
-    lastName: "",
-    phone: "",
-    state: "",
-    village: "",
-    distt: "",
-    country: "",
-    pinCode: "",
-  });
+  const location = useLocation();
+  console.log(location);
+  const address = location.state.data;
+  console.log(address);
+  const [userData, setUserData] = useState(address);
 
   let name, value;
   const postUserData = (event) => {
@@ -92,7 +88,7 @@ const Contact = () => {
   return (
     <>
       <section className="contactus-section">
-        <h1 className="main-heading fw-bold">Add Delivery country</h1>
+        <h1 className="main-heading fw-bold">Add Delivery Address</h1>
         <div className="contact_container">
           <div className="row">
             <div className="col-12 col-lg-10 mx-auto">
@@ -182,7 +178,7 @@ const Contact = () => {
                           type="text"
                           name="country"
                           className="form-control"
-                          placeholder="Add Country"
+                          placeholder="Country"
                           value={userData.country}
                           onChange={postUserData}
                         />

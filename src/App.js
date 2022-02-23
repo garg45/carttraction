@@ -8,13 +8,17 @@ import Thanku from "./components/Thanku";
 import PlaceOrder from "./components/PlaceOrder";
 import PlaceCard from "./components/PlaceCard";
 import Price from "./components/Price";
+import CheckOut from "./components/CheckOut";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
 
 const App = () => {
   return (
     <>
       <Switch>
         <Route exact path="/">
-          <Login />
+          <Home />
         </Route>
         <Route path="/signup">
           <Signup />
@@ -25,6 +29,9 @@ const App = () => {
         <Route path="/placeOrder">
           <PlaceOrder />
         </Route>
+        <Route path="/checkOut">
+          <CheckOut />
+        </Route>
         <Route path="/placeCard">
           <PlaceCard />
         </Route>
@@ -33,6 +40,12 @@ const App = () => {
         </Route>
         <Route path="/price">
           <Price />
+        </Route>
+        <Route path="/navbar">
+          <NavBar />
+        </Route>
+        <Route path="/footer">
+          <Footer />
         </Route>
         <Route component={Error404} />
       </Switch>

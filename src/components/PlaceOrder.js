@@ -10,6 +10,7 @@ import Price from "./Price";
 const PlaceOrder = () => {
   const history = useHistory();
   const [data, setData] = useState([]);
+  const [keys, setKeysList] = useState([]);
   const [load, setLoad] = useState(true);
   const getData = async () => {
     const res = await axios.get(
@@ -23,7 +24,9 @@ const PlaceOrder = () => {
     keysList.map((key) => {
       return dataList.push(data[key]);
     });
-    console.log(dataList[0].firstName);
+    console.log(keysList);
+    setKeysList(keysList);
+    // console.log(dataList[0].firstName);
     console.log(dataList);
     setData(dataList);
     setLoad(false);
@@ -51,11 +54,14 @@ const PlaceOrder = () => {
                     Delivery Address
                   </h3>
                 </div>
-                {data.map((e) => {
+                {data.map((e, index) => {
                   return (
-                    <>
-                      <PlaceCard data={e} />
-                    </>
+                    <PlaceCard
+                      data={e}
+                      key={index.toString()}
+                      keys={keys}
+                      index={index}
+                    />
                   );
                 })}
                 <div>
@@ -63,17 +69,22 @@ const PlaceOrder = () => {
                   <div className="addItem">
                     <i
                       className="fa fa-plus add-btn"
-                      title="Add Item"
+                      title="Add Address"
                       onClick={addAddress}
                     ></i>
                     Add a new address
                   </div>
+                  <div className="addItemDiv"></div>
+                  <h3 className="addressh3">
+                    <span className="number">2</span>
+                    ORDER SUMMARY
+                  </h3>
                 </div>
               </div>
             </div>
             <Price />
           </div>
-          <NavLink to="orderPlaced" className="navlink">
+          <NavLink to="checkOut" className="navlink">
             CHECKOUT CONTINUE
           </NavLink>
         </div>

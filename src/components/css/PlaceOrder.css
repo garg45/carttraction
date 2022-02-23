@@ -33,7 +33,7 @@
   box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
 }
 .deliveryAddress {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .card {
   padding: 16px 24px;
@@ -43,13 +43,16 @@
   border: none !important;
   align-items: flex-start;
 }
+.checkOutCard {
+  margin-top: 40px !important;
+  border: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
 #container h3 {
-  height: 48px;
   text-transform: uppercase;
   color: #878787;
   font-size: 16px;
   font-weight: 500;
-  padding: 0;
+  padding: 8px;
   border-radius: 2px 2px 0 0;
 }
 .number {
@@ -82,14 +85,23 @@
   max-width: 630px;
 }
 .name {
-  color: #212121;
-  font-weight: 500;
+  color: #212121 !important;
+  font-weight: 500 !important;
 }
 .pinCode {
-  font-weight: 500;
+  font-weight: 500 !important;
+}
+.cname {
+  color: #212121 !important;
+  font-size: 18px;
+  font-weight: 600 !important;
+}
+.cpinCode {
+  font-size: 18px;
+  font-weight: 600 !important;
 }
 
-#container a {
+#container a ,button{
   background: #189cf0;
   display: flex;
   align-items: center;
@@ -114,6 +126,12 @@
   color: #fff !important;
   font-size: 18px !important;
 }
+.addressh3 {
+  background-color: #ffff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 30px !important;
+  font-size: 18px !important;
+}
 .deliveryAddress .number {
   background-color: #fff;
   top: -2%;
@@ -122,7 +140,7 @@
 .name span {
   font-size: 20px;
 }
-.pinCode span{
+.pinCode span {
   font-size: 20px;
 }
 .navlink {
@@ -136,6 +154,11 @@
   margin-top: 22% !important;
 }
 #container a:hover {
+  background-color: #fff;
+  border-color: #189cf0;
+  color: #189cf0 !important;
+}
+#container button:hover {
   background-color: #fff;
   border-color: #189cf0;
   color: #189cf0 !important;
