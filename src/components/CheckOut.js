@@ -1,14 +1,26 @@
-import React, { useEffect} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./css/PlaceOrder.css";
 import { NavLink } from "react-router-dom";
 import Price from "./Price";
 import { useLocation } from "react-router-dom";
+import OrderSummary from "./OrderSummary";
+import { orderContext } from "./store/ContextApi";
 
 const CheckOut = () => {
+  const ctx = useContext(orderContext);
   const location = useLocation();
-  const data = location.state.data;
-
-  useEffect(() => {}, []);
+  const [data, setData] = useState({});
+  const getData = async () => {
+    if (!location.state) {
+      alert("Plz Add Address");
+    } else {
+      setData(location.state.data);
+      console.log(data);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
       <div id="container">
@@ -42,9 +54,13 @@ const CheckOut = () => {
                     </span>
                   </div>
                 </div>
-                <NavLink to="placeOrder">change address</NavLink>
+                <NavLink className="nav-link" to="placeOrder">
+                  change address
+                </NavLink>
               </div>
             </div>
+            <div className="addItemDiv"></div>
+            <OrderSummary cnt={ctx.orderCount} />
           </div>
           <Price />
         </div>

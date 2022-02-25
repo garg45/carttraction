@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import loginPic from "../images/login.svg";
+import { orderContext } from "./store/ContextApi";
 
 const Login = () => {
+  const ctx = useContext(orderContext);
+  console.log(ctx);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

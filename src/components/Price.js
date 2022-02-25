@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./css/Price.css";
+import { orderContext } from "./store/ContextApi";
 
 const Price = () => {
+  const ctx = useContext(orderContext);
   return (
     <>
       <div id="price">
@@ -11,12 +13,12 @@ const Price = () => {
             <div className="price_main_div">
               <div className="price_center_div">
                 <div className="center_details">
-                  <div className="items">Price (5 items)</div>
+                  <div className="items">Price ({ctx.orderCount} items)</div>
                 </div>
                 <span>
                   <div className="div_totPrice">
                     <div>
-                      <div className="totPrice">₹153,156</div>
+                      <div className="totPrice">₹{ctx.price}</div>
                     </div>
                   </div>
                 </span>
@@ -37,7 +39,7 @@ const Price = () => {
                   <span>
                     <div className="payment">
                       <div>
-                        <div className="total">₹153,156</div>
+                        <div className="total">₹{ctx.price}</div>
                       </div>
                     </div>
                   </span>

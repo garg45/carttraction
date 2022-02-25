@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import signpic from "../images/signup.svg";
+import E1 from '../images/E1.jpeg'
 import { NavLink } from "react-router-dom";
+import { orderContext } from "./store/ContextApi";
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -11,13 +13,32 @@ const Signup = () => {
     cpassword: "",
   });
 
+  const or = {
+    id: "1",
+    image: [E1],
+    name: "Vivo V23 5G",
+    description:
+      "8 GB RAM | 128 GB ROM | 16.36 cm (6.44 inch) Full HD+ Display | 64MP + 8MP + 2MP | 50MP + 8MP Dual Front Camera | 4200 mAh Lithium Battery | Mediatek Dimensity 920 Processo | colors :- Sunshine Gold,StarDust Black",
+    price: 29900,
+  };
+
+  const ctx = useContext(orderContext);
+
+  // console.log(ctx);
+  // console.log(ctx.order[0].image[0]);
+
+  // console.log(ctx.order[0].image[0]),
+  // ctx.addOrder(or);
+
   let name, value;
+  console.log(ctx.order);
 
   const handleInputs = (e) => {
     console.log(e);
     name = e.target.name;
     value = e.target.value;
     setUser({ ...user, [name]: value });
+    ctx.addOrder(or);
   };
   return (
     <>

@@ -27,8 +27,12 @@ a {
 }
 
 .center_div {
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
   width: 40%;
-  height: 60vh;
+  height: 50vh;
   background-color: #ffff;
   box-shadow: 5px 5px 25px -5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -38,20 +42,23 @@ h1 {
   font-family: "Maven Pro", sans-serif;
   font-weight: 600;
   font-size: 50px !important;
-  margin-top: 5rem !important;
+  /* margin-top: 5rem !important; */
 }
 h2 {
   font-weight: 400;
   font-size: 35px !important;
-  margin-top: 10rem !important;
+  margin-top: 2rem !important;
 }
 .main_div p {
-  margin-top: 5rem !important;
+  margin-top: 2rem !important;
   color: black;
   font-size: large;
 }
+.main_div p h3 {
+  font-size: 25px !important;
+}
 .center_div a {
-  margin-top: 5rem !important;
+  margin-top: 6rem !important;
   font-size: 14px;
   text-transform: uppercase;
   background: #189cf0;
@@ -69,19 +76,30 @@ h2 {
   border-color: #189cf0;
   color: #189cf0 !important;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 998px) {
   .center_div {
     width: 80%;
+    justify-content: center;
+    align-items: center !important;
   }
   h1 {
     font-size: 25px !important;
   }
   h2 {
-    margin-top: 5rem !important;
+    margin-top: 1rem !important;
+    font-size: 18px !important;
+  }
+
+  .main_div p {
+    margin-top: 1rem !important;
+    font-size: 14px;
+  }
+  .main_div p h3 {
     font-size: 20px !important;
   }
-  .main_div p {
-      margin-top: 3rem !important;
-    font-size: 15px;
+  .center_div a {
+    margin-top: 2rem !important;
+    font-size: 12px;
+    padding: 12px 14px;
   }
 }

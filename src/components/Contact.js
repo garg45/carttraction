@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
@@ -7,10 +8,23 @@ import contact from "../images/address2.png";
 const Contact = () => {
   const history = useHistory();
   const location = useLocation();
-  console.log(location);
-  const address = location.state.data;
-  console.log(address);
-  const [userData, setUserData] = useState(address);
+  const [userData, setUserData] = useState(location.state?location.state.data:{});
+  const getData = async () => {
+    if (location.state) {
+      const address = location.state.data;
+      console.log(location.state.key);
+      const key = location.state.key;
+      const res = await axios.delete(
+        `https://carttraction-11b9b-default-rtdb.firebaseio.com/address/${key}.json`
+      );
+      console.log(res);
+      console.log(address);
+      setUserData(address);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   let name, value;
   const postUserData = (event) => {
@@ -75,7 +89,7 @@ const Contact = () => {
           country: "",
           pinCode: "",
         });
-        alert("Data Stored");
+        alert("Data Saved");
         history.push("/placeOrder");
       } else {
         alert("plz fill the data");

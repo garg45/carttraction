@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./css/PlaceOrder.css";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./css/PlaceCard.css";
+import axios from "axios";
 
 const PlaceCard = ({ data, keys, index }) => {
   const history = useHistory();
@@ -13,6 +14,17 @@ const PlaceCard = ({ data, keys, index }) => {
       pathname: "/contact",
       state: { data: dataList, key: keys[index] },
     });
+  };
+  const deleteAddress = async () => {
+    const key = keys[index];
+    console.log(key);
+    const res = await axios.delete(
+      `https://carttraction-11b9b-default-rtdb.firebaseio.com/address/${key}.json`
+    );
+    console.log(res);
+    
+    history.push("/placeOrder");
+    alert("Deleted");
   };
   const handleClick = () => {
     history.push({
@@ -26,6 +38,7 @@ const PlaceCard = ({ data, keys, index }) => {
         <h3>
           <span
             className="number"
+            title="Select"
             onClick={() => {
               setToggle(!toggle);
             }}
@@ -58,7 +71,11 @@ const PlaceCard = ({ data, keys, index }) => {
               title="Edit Address"
               onClick={editAddress}
             ></i>
-            <i className="far fa-trash-alt add-btn" title="Delete Address"></i>
+            <i
+              className="far fa-trash-alt add-btn"
+              onClick={deleteAddress}
+              title="Delete Address"
+            ></i>
           </div>
         ) : (
           <button onClick={handleClick}>Continue With This</button>

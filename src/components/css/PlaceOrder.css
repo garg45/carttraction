@@ -38,13 +38,15 @@
 .card {
   padding: 16px 24px;
   min-height: 72px;
+  max-width: 900px !important;
   display: flex;
   flex-direction: row !important;
   border: none !important;
   align-items: flex-start;
 }
+
 .checkOutCard {
-  margin-top: 40px !important;
+  /* margin-top: 40px !important; */
   border: 1px solid rgba(0, 0, 0, 0.125) !important;
 }
 #container h3 {
@@ -58,6 +60,7 @@
 .number {
   font-size: 12px;
   color: #2874f0;
+  cursor: pointer;
   background-color: #f0f0f0;
   border-radius: 2px;
   padding: 3px 7px;
@@ -66,7 +69,7 @@
 }
 .address {
   display: inline-block;
-  width: 600px;
+  width: 500px;
 }
 .address .delivery {
   color: #878787;
@@ -101,7 +104,8 @@
   font-weight: 600 !important;
 }
 
-#container a ,button{
+#container a,
+button {
   background: #189cf0;
   display: flex;
   align-items: center;
@@ -149,6 +153,43 @@
   /* margin: auto auto; */
   border-radius: 40px !important;
 }
+.cardImg {
+  display: flex;
+  margin: auto 0;
+  align-items: center !important;
+}
+.cardImg img {
+  max-width: 20% !important;
+  height: 100% !important;
+  vertical-align: middle !important;
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+}
+.cardDesc {
+  display: flex;
+  width: 40%;
+  align-items: flex-start !important;
+  flex-direction: column !important;
+  justify-content: center;
+}
+.cardDesc .name {
+  font-size: 18px;
+}
+.cardDesc .price {
+  font-size: 20px;
+  color: black;
+}
+.cardDesc .desc {
+  font-weight: normal !important;
+}
+.remove {
+  display: flex;
+  margin: auto auto;
+  margin-right: 20px !important;
+  justify-content: center;
+  width: 40%;
+}
 .box {
   margin: auto auto !important;
   margin-top: 22% !important;
@@ -168,6 +209,9 @@
     width: 754px;
   }
   #container a {
+    width: 30% !important;
+  }
+  #container .navlink {
     width: 80% !important;
   }
 }
